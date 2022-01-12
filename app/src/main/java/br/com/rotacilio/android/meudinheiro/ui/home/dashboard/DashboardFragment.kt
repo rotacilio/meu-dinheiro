@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import br.com.rotacilio.android.meudinheiro.components.BaseFragment
 import br.com.rotacilio.android.meudinheiro.databinding.FragmentDashboardBinding
 
-class DashboardFragment : Fragment() {
+class DashboardFragment : BaseFragment() {
 
     private lateinit var binding: FragmentDashboardBinding
 
