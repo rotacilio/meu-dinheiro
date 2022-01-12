@@ -11,11 +11,11 @@
       "uuid": "32757ea4-7311-42de-bfdb-6bf2da170b4d",
       "documentation": "",
       "method": "get",
-      "endpoint": "",
+      "endpoint": "meudinheiro/api/v1/cards",
       "responses": [
         {
           "uuid": "48d4f61a-5355-4681-b33d-2b568fd8efa5",
-          "body": "{}",
+          "body": "[\n  {\n    \"id\": 1,\n    \"nickname\": \"Itaucard Gold\",\n    \"due_day\": 6,\n    \"best_day\": 28,\n    \"flag\": {\n      \"id\": 1,\n      \"name\": \"Mastercard\"\n    }\n  },\n  {\n    \"id\": 2,\n    \"nickname\": \"Nubank\",\n    \"due_day\": 6,\n    \"best_day\": 30,\n    \"flag\": {\n      \"id\": 1,\n      \"name\": \"Mastercard\"\n    }\n  },\n  {\n    \"id\": 3,\n    \"nickname\": \"Latam PASS Itaucard\",\n    \"due_day\": 1,\n    \"best_day\": 23,\n    \"flag\": {\n      \"id\": 2,\n      \"name\": \"Visa\"\n    }\n  },\n  {\n    \"id\": 4,\n    \"nickname\": \"Santander Smiles\",\n    \"due_day\": 1,\n    \"best_day\": 26,\n    \"flag\": {\n      \"id\": 2,\n      \"name\": \"Visa\"\n    }\n  },\n  {\n    \"id\": 5,\n    \"nickname\": \"RCHLO\",\n    \"due_day\": 27,\n    \"best_day\": 16,\n    \"flag\": {\n      \"id\": 1,\n      \"name\": \"Mastercard\"\n    }\n  },\n  {\n    \"id\": 6,\n    \"nickname\": \"Bradesco Platinum\",\n    \"due_day\": 15,\n    \"best_day\": 4,\n    \"flag\": {\n      \"id\": 2,\n      \"name\": \"Visa\"\n    }\n  }\n]",
           "latency": 0,
           "statusCode": 200,
           "label": "",
