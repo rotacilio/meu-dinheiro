@@ -1,4 +1,4 @@
-package br.com.rotacilio.android.meudinheiro.models
+package br.com.rotacilio.android.meudinheiro.data.model
 
 import com.squareup.moshi.Json
 

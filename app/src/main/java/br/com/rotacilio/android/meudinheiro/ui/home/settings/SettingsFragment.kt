@@ -19,8 +19,4 @@ class SettingsFragment : BaseFragment() {
         binding = FragmentSettingsBinding.inflate(inflater, container, false)
         return binding.root
     }
-
-    companion object {
-        fun newInstance(): SettingsFragment = SettingsFragment()
-    }
 }

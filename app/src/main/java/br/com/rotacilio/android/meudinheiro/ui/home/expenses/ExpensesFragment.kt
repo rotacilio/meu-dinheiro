@@ -19,8 +19,4 @@ class ExpensesFragment : BaseFragment() {
         binding = FragmentExpensesBinding.inflate(inflater, container, false)
         return binding.root
     }
-
-    companion object {
-        fun newInstance(): ExpensesFragment = ExpensesFragment()
-    }
 }

@@ -18,8 +18,4 @@ class ProfileFragment : BaseFragment() {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
-
-    companion object {
-        fun newInstance(): ProfileFragment = ProfileFragment()
-    }
 }

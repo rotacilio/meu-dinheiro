@@ -19,8 +19,4 @@ class DashboardFragment : BaseFragment() {
         binding = FragmentDashboardBinding.inflate(inflater, container, false)
         return binding.root
     }
-
-    companion object {
-        fun newInstance(): DashboardFragment = DashboardFragment()
-    }
 }
