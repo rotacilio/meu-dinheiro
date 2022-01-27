@@ -16,7 +16,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "BASE_URL", "\"http://192.168.0.8:3000/meudinheiro/api/v1/\""
+        buildConfigField "String", "BASE_URL", "\"http://192.168.0.19:3000/meudinheiro/api/v1/\""
     }
 
     buildTypes {

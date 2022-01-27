@@ -5,4 +5,6 @@
     <string name="expenses">Despesas</string>
     <string name="my_account">Minha Conta</string>
     <string name="settings">Configurações</string>
+    <string name="due_day_text">Vencimento: %s</string>
+    <string name="best_day_text">Melhor dia para compra: %s</string>
 </resources>

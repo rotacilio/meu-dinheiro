@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:contentPadding="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/idImgViewFlagIcon"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:adjustViewBounds="true"
+                tools:src="@mipmap/ic_mastercard" />
+
+            <LinearLayout
+                android:id="@+id/idLayoutDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="16dp"
+                android:layout_toStartOf="@+id/idImgRemoveCard"
+                android:layout_toEndOf="@id/idImgViewFlagIcon"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/idTxtViewCardNickname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textSize="18sp"
+                    tools:text="Latam PASS Itaucard" />
+
+                <TextView
+                    android:id="@+id/idTxtViewCardDueDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_light"
+                    android:textSize="14sp"
+                    tools:text="Vencimento: 6" />
+
+                <TextView
+                    android:id="@+id/idTxtViewCardBestDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_light"
+                    android:textSize="14sp"
+                    tools:text="Melhor dia para comprar: 28" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@id/idImgRemoveCard"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_baseline_delete_outline_24" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

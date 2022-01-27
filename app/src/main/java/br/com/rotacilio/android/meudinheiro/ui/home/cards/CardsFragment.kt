@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import br.com.rotacilio.android.meudinheiro.adapters.CardsListAdapter
 import br.com.rotacilio.android.meudinheiro.components.BaseFragment
 import br.com.rotacilio.android.meudinheiro.databinding.FragmentCardsBinding
 import br.com.rotacilio.android.meudinheiro.utils.Status
@@ -14,6 +15,7 @@ class CardsFragment : BaseFragment() {
 
     private val viewModel: CardsViewModel by viewModel()
     private lateinit var binding: FragmentCardsBinding
+    private lateinit var adapter: CardsListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,11 +23,13 @@ class CardsFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCardsBinding.inflate(inflater, container, false)
+        adapter = CardsListAdapter()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.idRecyclerViewCards.adapter = adapter
         setupObservers()
     }
 
@@ -41,6 +45,9 @@ class CardsFragment : BaseFragment() {
                     }
                     Status.SUCCESS -> {
                         Log.d(TAG, "Cards: ${it.data?.size}")
+                        it.data?.let { cards ->
+                            adapter.data = cards
+                        }
                     }
                 }
             }
