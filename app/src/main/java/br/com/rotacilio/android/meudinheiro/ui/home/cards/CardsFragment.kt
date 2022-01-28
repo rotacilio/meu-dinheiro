@@ -5,10 +5,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import br.com.rotacilio.android.meudinheiro.R
 import br.com.rotacilio.android.meudinheiro.adapters.CardsListAdapter
 import br.com.rotacilio.android.meudinheiro.components.BaseFragment
+import br.com.rotacilio.android.meudinheiro.components.MarginItemDecoration
 import br.com.rotacilio.android.meudinheiro.databinding.FragmentCardsBinding
 import br.com.rotacilio.android.meudinheiro.utils.Status
+import br.com.rotacilio.android.meudinheiro.utils.dp
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class CardsFragment : BaseFragment() {
@@ -29,6 +34,7 @@ class CardsFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.idRecyclerViewCards.addItemDecoration(MarginItemDecoration(16.dp))
         binding.idRecyclerViewCards.adapter = adapter
         setupObservers()
     }
