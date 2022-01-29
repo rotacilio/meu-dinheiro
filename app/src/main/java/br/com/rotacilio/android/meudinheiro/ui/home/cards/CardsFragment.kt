@@ -52,7 +52,7 @@ class CardsFragment : BaseFragment() {
                     Status.SUCCESS -> {
                         Log.d(TAG, "Cards: ${it.data?.size}")
                         it.data?.let { cards ->
-                            adapter.data = cards
+                            adapter.submitList(cards)
                         }
                     }
                 }

@@ -1,48 +1,47 @@
 package br.com.rotacilio.android.meudinheiro.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import br.com.rotacilio.android.meudinheiro.R
 import br.com.rotacilio.android.meudinheiro.data.model.Card
+import br.com.rotacilio.android.meudinheiro.databinding.CardsListItemBinding
 
-class CardsListAdapter : RecyclerView.Adapter<CardsListAdapter.CardViewHolder>() {
+class CardsListAdapter : ListAdapter<Card, CardsListAdapter.ViewHolder>(CardsDiffCallback()) {
 
-    var data = listOf<Card>()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.cards_list_item, parent, false)
-        return CardViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder.from(parent)
     }
 
-    override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
-        val item = data[position]
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = getItem(position)
         holder.bind(item)
     }
 
-    override fun getItemCount(): Int = data.size
-
-    class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        private val cardFlag = itemView.findViewById<ImageView>(R.id.idImgViewFlagIcon)
-        private val cardNickname = itemView.findViewById<TextView>(R.id.idTxtViewCardNickname)
-        private val cardDueDay = itemView.findViewById<TextView>(R.id.idTxtViewCardDueDay)
-        private val cardBestDay = itemView.findViewById<TextView>(R.id.idTxtViewCardBestDay)
+    class ViewHolder private constructor(private val binding: CardsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(card: Card) {
-            cardFlag.setImageResource(
-                if (card.flag?.flagId == 1L) R.mipmap.ic_mastercard else R.mipmap.ic_visa)
-            cardNickname.text = card.nickname
-            cardDueDay.text = String.format(itemView.context.getString(R.string.due_day_text), card.dueDay.toString())
-            cardBestDay.text = String.format(itemView.context.getString(R.string.best_day_text), card.bestDay.toString())
+            binding.card = card
+            binding.executePendingBindings()
         }
+
+        companion object {
+            fun from(parent: ViewGroup): ViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = CardsListItemBinding.inflate(layoutInflater, parent, false)
+                return ViewHolder(binding)
+            }
+        }
+    }
+}
+
+class CardsDiffCallback : DiffUtil.ItemCallback<Card>() {
+    override fun areItemsTheSame(oldItem: Card, newItem: Card): Boolean {
+        return oldItem.cardId == newItem.cardId
+    }
+    override fun areContentsTheSame(oldItem: Card, newItem: Card): Boolean {
+        return oldItem == newItem
     }
 }
